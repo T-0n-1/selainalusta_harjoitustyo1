@@ -151,3 +151,43 @@ class Circle extends Ellipse {
     super(name, location, r, r);
   }
 }
+
+class Shapes {
+  privates: Map<string, Shape> = new Map();
+
+  private shapes: Map<string, Shape> = new Map();
+
+  add(s: Shape): Shape | undefined {
+    const oldShape = this.shapes.get(s.name);
+    this.shapes.set(s.name, s);
+    return oldShape;
+  }
+
+  remove(name: string): Shape | undefined {
+    const shape = this.shapes.get(name);
+    if (shape) {
+      this.shapes.delete(name);
+    }
+    return shape;
+  }
+
+  remove2(p: Point): Shape | undefined {
+    for (const [key, shape] of this.shapes) {
+      if (shape.location.x === p.x && shape.location.y === p.y) {
+        this.shapes.delete(key);
+        return shape;
+      }
+    }
+    return undefined;
+  }
+
+  drawall(): void {
+    console.log("********** START **********");
+    for (const shape of this.shapes.values()) {
+      shape.draw();
+    }
+    console.log("*********** END ***********");
+  }
+}
+
+export { Point, Shape, Rectangle, Ellipse, Square, Circle, Shapes };
