@@ -141,3 +141,13 @@ class Square extends Rectangle {
     super(name, location, side, side);
   }
 }
+
+class Circle extends Ellipse {
+  constructor(
+    name: string = "subshapeCircle",
+    location: Point = new Point(),
+    r: number = 5
+  ) {
+    super(name, location, r, r);
+  }
+}
