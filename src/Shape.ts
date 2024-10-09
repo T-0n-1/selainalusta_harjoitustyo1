@@ -54,7 +54,7 @@ abstract class Shape {
   }
 
   toString(): string {
-    return `name: ${this.name}, location: ${this.location}`;
+    return `name: ${this.name}, location: (${this.location.x},${this.location.y})`;
   }
 
   abstract draw(): void;
@@ -93,7 +93,9 @@ class Rectangle extends Shape {
     return `${super.toString()}, w: ${this.width}, h: ${this.height}`;
   }
 
-  draw(): void {}
+  draw(): void {
+    console.log(this.toString());
+  }
 }
 
 class Ellipse extends Shape {
@@ -126,10 +128,12 @@ class Ellipse extends Shape {
   }
 
   toString(): string {
-    return `${super.toString()}, w: ${this.a}, h: ${this.b}`;
+    return `${super.toString()}, a: ${this.a}, b: ${this.b}`;
   }
 
-  draw(): void {}
+  draw(): void {
+    console.log(this.toString());
+  }
 }
 
 class Square extends Rectangle {
@@ -153,8 +157,6 @@ class Circle extends Ellipse {
 }
 
 class Shapes {
-  privates: Map<string, Shape> = new Map();
-
   private shapes: Map<string, Shape> = new Map();
 
   add(s: Shape): Shape | undefined {
@@ -167,8 +169,9 @@ class Shapes {
     const shape = this.shapes.get(name);
     if (shape) {
       this.shapes.delete(name);
+      return shape;
     }
-    return shape;
+    return undefined;
   }
 
   remove2(p: Point): Shape | undefined {
