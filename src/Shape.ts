@@ -1,5 +1,6 @@
 class Point {
-  constructor(private _x: number = 0, private _y: number = 0) {}
+  private _x!: number;
+  private _y!: number;
 
   get x(): number {
     return this._x;
@@ -19,16 +20,19 @@ class Point {
     }
   }
 
+  constructor(x: number = 0, y: number = 0) {
+    this.x = x;
+    this.y = y;
+  }
+
   toString(): string {
     return `(${this.x}, ${this.y})`;
   }
 }
 
 abstract class Shape {
-  constructor(
-    private _name: string = "Circle",
-    private _location: Point = new Point()
-  ) {}
+  private _name!: string;
+  private _location!: Point;
 
   get name(): string {
     return this._name;
@@ -44,9 +48,50 @@ abstract class Shape {
     this._location = value;
   }
 
+  constructor(name: string = "parentShape", location: Point = new Point()) {
+    this.name = name;
+    this.location = location;
+  }
+
   toString(): string {
     return `name: ${this.name}, location: ${this.location}`;
   }
 
   abstract draw(): void;
+}
+
+class Rectangle extends Shape {
+  private _width!: number;
+  private _height!: number;
+
+  get width(): number {
+    return this._width;
+  }
+  set width(value: number) {
+    this._width = value;
+  }
+
+  get height(): number {
+    return this._height;
+  }
+  set height(value: number) {
+    this._height = value;
+  }
+
+  constructor(
+    name: string = "subshapeRectangle",
+    location: Point = new Point(),
+    width: number = 5,
+    height: number = 5
+  ) {
+    super(name, location);
+    this.width = width;
+    this.height = height;
+  }
+
+  toString(): string {
+    return `${super.toString()}, w: ${this.width}, h: ${this.height}`;
+  }
+
+  draw(): void {}
 }
