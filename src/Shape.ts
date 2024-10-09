@@ -95,3 +95,39 @@ class Rectangle extends Shape {
 
   draw(): void {}
 }
+
+class Ellipse extends Shape {
+  private _a!: number;
+  private _b!: number;
+
+  get a(): number {
+    return this._a;
+  }
+  set a(value: number) {
+    this._a = value;
+  }
+
+  get b(): number {
+    return this._b;
+  }
+  set b(value: number) {
+    this._b = value;
+  }
+
+  constructor(
+    name: string = "subshapeEllipse",
+    location: Point = new Point(),
+    a: number = 5,
+    b: number = 5
+  ) {
+    super(name, location);
+    this.a = a;
+    this.b = b;
+  }
+
+  toString(): string {
+    return `${super.toString()}, w: ${this.a}, h: ${this.b}`;
+  }
+
+  draw(): void {}
+}
