@@ -131,3 +131,13 @@ class Ellipse extends Shape {
 
   draw(): void {}
 }
+
+class Square extends Rectangle {
+  constructor(
+    name: string = "subshapeSquare",
+    location: Point = new Point(),
+    side: number = 5
+  ) {
+    super(name, location, side, side);
+  }
+}
