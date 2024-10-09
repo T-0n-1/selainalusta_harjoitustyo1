@@ -1,0 +1,19 @@
+{
+  "name": "harjoitustyo",
+  "version": "1.0.0",
+  "description": "TS harjoitustyo",
+  "main": "./dist/App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/App.js"  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T-0n-1/selainalusta_harjoitustyo1.git"
+  },
+  "author": "Toni Mertanen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/T-0n-1/selainalusta_harjoitustyo1/issues"
+  },
+  "homepage": "https://github.com/T-0n-1/selainalusta_harjoitustyo1#readme"
+}
