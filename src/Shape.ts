@@ -82,7 +82,7 @@ class Rectangle extends Shape {
     name: string = "subshapeRectangle",
     location: Point = new Point(),
     width: number = 5,
-    height: number = 5
+    height: number = 5,
   ) {
     super(name, location);
     this.width = width;
@@ -120,7 +120,7 @@ class Ellipse extends Shape {
     name: string = "subshapeEllipse",
     location: Point = new Point(),
     a: number = 5,
-    b: number = 5
+    b: number = 5,
   ) {
     super(name, location);
     this.a = a;
@@ -140,7 +140,7 @@ class Square extends Rectangle {
   constructor(
     name: string = "subshapeSquare",
     location: Point = new Point(),
-    side: number = 5
+    side: number = 5,
   ) {
     super(name, location, side, side);
   }
@@ -150,7 +150,7 @@ class Circle extends Ellipse {
   constructor(
     name: string = "subshapeCircle",
     location: Point = new Point(),
-    r: number = 5
+    r: number = 5,
   ) {
     super(name, location, r, r);
   }
